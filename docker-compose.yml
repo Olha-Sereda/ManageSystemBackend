@@ -1,0 +1,33 @@
+version: "3.8" #docker version
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: spectator
+      POSTGRES_PASSWORD: masterkey
+      PGDATA: /var/lib/postgresql/data
+    networks:
+      - postgres
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    networks:
+      - postgres
+    ports:
+      - "5050:80"
+
+networks: #connection between two containers
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
