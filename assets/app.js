@@ -2,7 +2,6 @@ import Mymenu from "./components/menu";
 import MyList from "./components/list"
 import "./styles/app.css";
 
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 
