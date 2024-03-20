@@ -51,12 +51,15 @@ class ServerFixtures extends Fixture
         $server5->setPasswordKey('KraKra37~_gaq');
         $manager->persist($server5);
 
-
-        //  $service1 = new Service();
-        //  $service1->setServiceName('USOS');
-        //  $service1->setServerId($server1);
-        //  $manager->persist($service1);
+        $manager->flush();
+        
+        $service1 = new Service();
+        $service1->setServiceName('USOS');
+        $service1->setServerId($server1);
+        $manager->persist($service1);
 
         $manager->flush();
+        
+
     }
 }

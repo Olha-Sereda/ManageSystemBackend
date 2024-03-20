@@ -2,7 +2,7 @@ version: "3.8" #docker version
 services:
   postgres:
     container_name: dyplom_postgres   # use that name as hostname in pgadmin
-    image: postgres
+    image: postgres:11
     restart: always
     environment:
       POSTGRES_USER: spectator
