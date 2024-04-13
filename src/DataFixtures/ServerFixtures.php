@@ -144,17 +144,15 @@ class ServerFixtures extends Fixture
         $service8->setServerId($server4);
         $manager->persist($service8);
 
-        $userrep = $manager->getRepository(User::class);
-        dd($userrep->findAll());
-        
-       $test1 = new Tests();
-       $test1->setTestName('Math');
-       $test1->setTestCode('Code code code');
-       $test1->setDatetimeUpdate(null);
-       $test1->setEnabled(true);
-       $test1->setUserId($userrep->findOneByUserMail("user0@example.com"));
-       $manager->persist($test1);
+        $service9 = new Service();
+        $service9->setServiceName('Luk');
+        $service9->setServerId($server1);
+        $manager->persist($service9);
 
+        $service10 = new Service();
+        $service10->setServiceName('Karol');
+        $service10->setServerId($server1);
+        $manager->persist($service10);
 
         $manager->flush();
         
