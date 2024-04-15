@@ -29,5 +29,18 @@ class ServiceController extends AbstractController
         }
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    #[Route('/api/service/{id<\d+>}', name: 'service_delete', methods: 'DELETE')]
+    public function deleteService(ServiceRepository $serviceRepository, int $id) : JsonResponse
+    {
+        $service = $serviceRepository->findOneBy(['id' => $id]);
+        if ($service) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($service);
+            $entityManager->flush();
+        }
+        return new JsonResponse(['status' => 'Service deleted'], Response::HTTP_NO_CONTENT);
+    }
+
     
 }

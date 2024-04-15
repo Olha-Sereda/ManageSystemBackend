@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ServerController extends AbstractController
 {
-    #[Route('/api/server', name: 'app_server', methods: 'GET')]
+    #[Route('/api/servers', name: 'app_server', methods: 'GET')]
     public function index(ManagerRegistry $manager) : JsonResponse
     {
         $servers = $manager->getRepository(Server::class)->findAll();
