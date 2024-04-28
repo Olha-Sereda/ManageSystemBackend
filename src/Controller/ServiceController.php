@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Server;
 use App\Entity\Service;
 use App\Repository\ServiceRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,16 +30,17 @@ class ServiceController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
-    #[Route('/api/service/{id<\d+>}', name: 'service_delete', methods: 'DELETE')]
-    public function deleteService(ServiceRepository $serviceRepository, int $id) : JsonResponse
+    #[Route('/api/service/{id<\d+>}', name: 'service_delete', methods:  ['DELETE'] )]
+    public function deleteService(ServiceRepository $serviceRepository, EntityManagerInterface $em, int $id) : JsonResponse
     {
         $service = $serviceRepository->findOneBy(['id' => $id]);
+
         if ($service) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($service);
-            $entityManager->flush();
+            $em->remove($service);
+            $em->flush();
+            return new JsonResponse(null, Response::HTTP_NO_CONTENT);
         }
-        return new JsonResponse(['status' => 'Service deleted'], Response::HTTP_NO_CONTENT);
+        return new JsonResponse(['status' => 'Service not found'], Response::HTTP_NOT_FOUND);   
     }
 
     
