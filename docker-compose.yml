@@ -1,8 +1,8 @@
 version: "3.8" #docker version
 services:
   postgres:
-    container_name: dyplom_postgres   # use that name as hostname in pgadmin
-    image: postgres:11
+    container_name: dyplom_postgres # use that name as hostname in pgadmin
+    image: postgres:16
     restart: always
     environment:
       POSTGRES_USER: spectator
@@ -11,7 +11,7 @@ services:
     networks:
       - postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
   pgadmin:
     container_name: dyplom_pgadmin4
     image: dpage/pgadmin4

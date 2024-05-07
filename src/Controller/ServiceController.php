@@ -52,7 +52,7 @@ class ServiceController extends AbstractController
     
         $service = new Service();
         $service->setServiceName($service_name);
-        $service->setServer($server);
+        $service->setServerId($server);
     
         $em->persist($service);
         $em->flush();
