@@ -22,7 +22,7 @@ class Server
     private ?string $fqdn = null;
 
     #[ORM\Column(length: 15, nullable: true)]
-    private ?string $ip_address = null;
+    private ?int $port = null;
 
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $login = null;
@@ -67,14 +67,14 @@ class Server
         return $this;
     }
 
-    public function getIpAddress(): ?string
+    public function getPort(): ?int
     {
-        return $this->ip_address;
+        return $this->port;
     }
 
-    public function setIpAddress(?string $ip_address): static
+    public function setPort(?int $port): static
     {
-        $this->ip_address = $ip_address;
+        $this->port = $port;
 
         return $this;
     }
