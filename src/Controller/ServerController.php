@@ -22,7 +22,7 @@ class ServerController extends AbstractController
                 'id' => $server->getId(),
                 'server_name' => $server->getServerName(),
                 'fqdn' => $server->getFqdn(),
-                'ip_address' => $server->getIpAddress(),
+                'port' => $server->getPort(),
                 'login' => $server->getLogin(),
                 'password_key' => $server->getPasswordKey(),
             ];
