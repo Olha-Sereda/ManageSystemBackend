@@ -30,45 +30,44 @@ class TemplateController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
-    // #[Route('/api/server/', name: 'service_add', methods: ['POST'])]
-    // public function addService(Request $request, EntityManagerInterface $em, ServerRepository $serverRepository): JsonResponse
-    // {
-    //     $data = json_decode($request->getContent(), true);
+    #[Route('/api/template/', name: 'template_add', methods: ['POST'])]
+    public function addTemplate(Request $request, EntityManagerInterface $em): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
     
-    //     $service_name = $data['service_name'];
-    //     $server_id = $request->query->get('id');
+        $template_name = $data['template_name'];
+        $test_code = $data['test_code'];
+        $expected_answer = $data['expected_answer'];
     
-    //     if (empty($service_name)) {
-    //         return new JsonResponse(['status' => 'Service name is required'], Response::HTTP_BAD_REQUEST);
-    //     }
+        if (empty($template_name) || empty($test_code) || empty($expected_answer)) {
+            return new JsonResponse(['status' => 'All fields are required'], Response::HTTP_BAD_REQUEST);
+        }
     
-    //     $server = $serverRepository->find($server_id);
-    //     if (!$server) {
-    //         return new JsonResponse(['status' => 'Server not found'], Response::HTTP_NOT_FOUND);
-    //     }
+        $template = new Template();
+        $template->setTemplateName($template_name);
+        $template->setTestCode($test_code);
+        $template->setExpectedAnswer($expected_answer);
     
-    //     $service = new Service();
-    //     $service->setServiceName($service_name);
-    //     $service->setServerId($server);
+        $em->persist($template);
+        $em->flush();
     
-    //     $em->persist($service);
-    //     $em->flush();
-    
-    //     return new JsonResponse(['status' => 'Service added successfully'], Response::HTTP_CREATED);
-    // }
-    // #[Route('/api/service/{serviceId<\d+>}', name: 'service_delete', methods: ['DELETE'])]
-    // public function deleteService(int $serviceId, ServiceRepository $serviceRepository, EntityManagerInterface $em): JsonResponse
-    // {
-    //     $service = $serviceRepository->find($serviceId);
+        return new JsonResponse(['status' => 'Template added successfully'], Response::HTTP_CREATED);
+    }
 
-    //     if (!$service) {
-    //         return new JsonResponse(['status' => 'Service not found'], Response::HTTP_NOT_FOUND);
-    //     }
-
-    //     $em->remove($service);
-    //     $em->flush();
-
-    //     return new JsonResponse(['status' => 'Service deleted successfully'], Response::HTTP_OK);
-    // }
+    #[Route('/api/template/{templateId}', name: 'template_delete', methods: ['DELETE'])]
+    public function deleteTemplate(int $templateId, TemplateRepository $templateRepository, EntityManagerInterface $em): JsonResponse
+    {
+        $template = $templateRepository->find($templateId);
+    
+        if (!$template) {
+            return new JsonResponse(['status' => 'Template not found'], Response::HTTP_NOT_FOUND);
+        }
+    
+        $em->remove($template);
+        $em->flush();
+    
+        return new JsonResponse(['status' => 'Template deleted successfully'], Response::HTTP_OK);
+    }
+    
     
 }
