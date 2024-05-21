@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
@@ -27,6 +28,15 @@ class Service
 
     #[ORM\ManyToMany(targetEntity: Tests::class)]
     private Collection $Relation_Service_Tests;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $start_cmd = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $stop_cmd = null;
+
+    #[ORM\Column]
+    private ?bool $is_run = null;
 
     
 
@@ -115,6 +125,42 @@ class Service
     public function removeRelationServiceTest(Tests $relationServiceTest): static
     {
         $this->Relation_Service_Tests->removeElement($relationServiceTest);
+
+        return $this;
+    }
+
+    public function getStartCmd(): ?string
+    {
+        return $this->start_cmd;
+    }
+
+    public function setStartCmd(?string $start_cmd): static
+    {
+        $this->start_cmd = $start_cmd;
+
+        return $this;
+    }
+
+    public function getStopCmd(): ?string
+    {
+        return $this->stop_cmd;
+    }
+
+    public function setStopCmd(?string $stop_cmd): static
+    {
+        $this->stop_cmd = $stop_cmd;
+
+        return $this;
+    }
+
+    public function isRun(): ?bool
+    {
+        return $this->is_run;
+    }
+
+    public function setRun(bool $is_run): static
+    {
+        $this->is_run = $is_run;
 
         return $this;
     }

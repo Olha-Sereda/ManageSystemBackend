@@ -107,51 +107,61 @@ class ServerFixtures extends Fixture
         $service1 = new Service();
         $service1->setServiceName('USOS');
         $service1->setServerId($server1);
+        $service1->setRun(false);
         $manager->persist($service1);
 
         $service2 = new Service();
         $service2->setServiceName('Wierzba');
         $service2->setServerId($server1);
+        $service2->setRun(false);
         $manager->persist($service2);
 
         $service3 = new Service();
         $service3->setServiceName('Luk');
         $service3->setServerId($server2);
+        $service3->setRun(false);
         $manager->persist($service3);
 
         $service4 = new Service();
         $service4->setServiceName('Karol');
         $service4->setServerId($server2);
+        $service4->setRun(false);
         $manager->persist($service4);
 
         $service5 = new Service();
         $service5->setServiceName('Sony');
         $service5->setServerId($server2);
+        $service5->setRun(false);
         $manager->persist($service5);
 
         $service6 = new Service();
         $service6->setServiceName('Sony');
         $service6->setServerId($server3);
+        $service6->setRun(false);
         $manager->persist($service6);
         
         $service7 = new Service();
         $service7->setServiceName('Life');
         $service7->setServerId($server3);
+        $service7->setRun(false);
         $manager->persist($service7);
 
         $service8 = new Service();
         $service8->setServiceName('Mirror');
         $service8->setServerId($server4);
+        $service8->setRun(false);
         $manager->persist($service8);
 
         $service9 = new Service();
         $service9->setServiceName('Luk');
         $service9->setServerId($server1);
+        $service9->setRun(false);
         $manager->persist($service9);
 
         $service10 = new Service();
         $service10->setServiceName('Karol');
         $service10->setServerId($server1);
+        $service10->setRun(false);
         $manager->persist($service10);
 
         $manager->flush();
