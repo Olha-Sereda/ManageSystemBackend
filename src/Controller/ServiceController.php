@@ -73,5 +73,33 @@ class ServiceController extends AbstractController
 
         return new JsonResponse(['status' => 'Service deleted successfully'], Response::HTTP_OK);
     }
-    
+    #[Route('/api/service/{serviceId<\d+>}/start', name: 'service_update', methods: ['GET'])]
+    public function startService(int $serviceId, ServiceRepository $serviceRepository, EntityManagerInterface $em): JsonResponse
+    {
+        $service = $serviceRepository->find($serviceId);
+
+        if (!$service) {
+            return new JsonResponse(['status' => 'Service not found'], Response::HTTP_NOT_FOUND);
+        }
+        //TODO: Implement the logic to start the service
+        $service->setRun(true);
+        $em->flush();
+
+        return new JsonResponse(['status' => 'Service started successfully'], Response::HTTP_OK);
+    }
+
+    #[Route('/api/service/{serviceId<\d+>}/stop', name: 'service_update', methods: ['GET'])]
+    public function stopService(int $serviceId, ServiceRepository $serviceRepository, EntityManagerInterface $em): JsonResponse
+    {
+        $service = $serviceRepository->find($serviceId);
+
+        if (!$service) {
+            return new JsonResponse(['status' => 'Service not found'], Response::HTTP_NOT_FOUND);
+        }
+        //TODO: Implement the logic to stop the service
+        $service->setRun(false);
+        $em->flush();
+
+        return new JsonResponse(['status' => 'Service stoped successfully'], Response::HTTP_OK);
+    }
 }
