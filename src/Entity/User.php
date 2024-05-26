@@ -40,14 +40,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Tests::class)]
     private Collection $test_relation;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: TestResultLog::class)]
-    private Collection $test_log_result_relation;
-
     public function __construct()
     {
         $this->Test_relation = new ArrayCollection();
         $this->test_relation = new ArrayCollection();
-        $this->test_log_result_relation = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -180,36 +177,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($testRelation->getUserId() === $this) {
                 $testRelation->setUserId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, TestResultLog>
-     */
-    public function getTestLogResultRelation(): Collection
-    {
-        return $this->test_log_result_relation;
-    }
-
-    public function addTestLogResultRelation(TestResultLog $testLogResultRelation): static
-    {
-        if (!$this->test_log_result_relation->contains($testLogResultRelation)) {
-            $this->test_log_result_relation->add($testLogResultRelation);
-            $testLogResultRelation->setUserId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTestLogResultRelation(TestResultLog $testLogResultRelation): static
-    {
-        if ($this->test_log_result_relation->removeElement($testLogResultRelation)) {
-            // set the owning side to null (unless already changed)
-            if ($testLogResultRelation->getUserId() === $this) {
-                $testLogResultRelation->setUserId(null);
             }
         }
 

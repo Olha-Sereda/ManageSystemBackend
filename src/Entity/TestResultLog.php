@@ -20,10 +20,6 @@ class TestResultLog
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $execution_answer = null;
 
-    #[ORM\ManyToOne(inversedBy: 'test_log_result_relation')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $user_id = null;
-
     #[ORM\ManyToOne(inversedBy: 'Test_result_log')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Service $service_id = null;
@@ -57,18 +53,6 @@ class TestResultLog
     public function setExecutionAnswer(?string $execution_answer): static
     {
         $this->execution_answer = $execution_answer;
-
-        return $this;
-    }
-
-    public function getUserId(): ?User
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(?User $user_id): static
-    {
-        $this->user_id = $user_id;
 
         return $this;
     }
