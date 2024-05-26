@@ -38,9 +38,6 @@ class Tests
     #[ORM\OneToMany(mappedBy: 'test_id', targetEntity: TestResultLog::class, orphanRemoval: true)]
     private Collection $Test_log_result_relation;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $status = null;
-
     public function __construct()
     {
         $this->Test_log_result_relation = new ArrayCollection();
@@ -149,18 +146,6 @@ class Tests
                 $testLogResultRelation->setTestId(null);
             }
         }
-
-        return $this;
-    }
-
-    public function isStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?bool $status): static
-    {
-        $this->status = $status;
 
         return $this;
     }

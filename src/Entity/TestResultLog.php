@@ -28,6 +28,9 @@ class TestResultLog
     #[ORM\JoinColumn(nullable: false)]
     private ?Tests $test_id = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $status = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +80,18 @@ class TestResultLog
     public function setTestId(?Tests $test_id): static
     {
         $this->test_id = $test_id;
+
+        return $this;
+    }
+
+    public function isStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?bool $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }
