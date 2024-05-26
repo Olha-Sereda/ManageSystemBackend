@@ -70,7 +70,7 @@ class UserFixtures extends AbstractBaseFixtures
         
         $test1 = new Tests();
         $test1->setTestName('Service available');
-        $test1->setTestCode("if [ -z `ps afx| grep \"/home/epi/21_sereda/G_projekt/app.py\" | grep -v grep | awk ' { print $1 } '` ]; then echo \"false\"; else echo \"true\"; fi");
+        $test1->setTestCode("if [ -z `ps afx| grep \"/home/epi/21_sereda/G_projekt/app.py\" | grep -v grep | awk ' { print $1 } '` ]; then echo -n \"false\"; else echo -n \"true\"; fi");
         $test1->setDatetimeUpdate(null);
         $test1->setEnabled(true);
         $test1->setExpectedAnswer('true');
