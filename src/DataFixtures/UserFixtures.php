@@ -69,28 +69,28 @@ class UserFixtures extends AbstractBaseFixtures
 //        $userId = $user ? $user->getId() : null;
         
         $test1 = new Tests();
-        $test1->setTestName('Math');
-        $test1->setTestCode('Code code code');
+        $test1->setTestName('Service available');
+        $test1->setTestCode("if [ -z `ps afx| grep \"/home/epi/21_sereda/G_projekt/app.py\" | grep -v grep | awk ' { print $1 } '` ]; then echo \"false\"; else echo \"true\"; fi");
         $test1->setDatetimeUpdate(null);
         $test1->setEnabled(true);
         $test1->setUserId($user1);
         $this->manager->persist($test1);
 
         $test2 = new Tests();
-        $test2->setTestName('Geometry');
-        $test2->setTestCode('Code code code code code code code code code code code code code code code code code code ');
+        $test2->setTestName('Port Listening');
+        $test2->setTestCode('ss -nltp | grep 12140 | awk \' { print $4 } \' | cut -f2 --delimiter=":" ');
         $test2->setDatetimeUpdate(null);
         $test2->setEnabled(true);
         $test2->setUserId($user1);
         $this->manager->persist($test2);
 
-        $test3 = new Tests();
-        $test3->setTestName('Algebra');
-        $test3->setTestCode('Code code code code code code code code code code code code code code code code code code ');
-        $test3->setDatetimeUpdate(null);
-        $test3->setEnabled(true);
-        $test3->setUserId($user1);
-        $this->manager->persist($test3);
+        // $test3 = new Tests();
+        // $test3->setTestName('Algebra');
+        // $test3->setTestCode('Code code code code code code code code code code code code code code code code code code ');
+        // $test3->setDatetimeUpdate(null);
+        // $test3->setEnabled(true);
+        // $test3->setUserId($user1);
+        // $this->manager->persist($test3);
 
         $this->manager->flush();
     }
