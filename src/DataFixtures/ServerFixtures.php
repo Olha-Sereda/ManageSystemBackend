@@ -105,7 +105,7 @@ class ServerFixtures extends Fixture
         $manager->flush();
         
         $service1 = new Service();
-        $service1->setServiceName('USOS');
+        $service1->setServiceName('Service Saboteur');
         $service1->setServerId($server1);
         $service1->setStartCmd('/home/epi/21_sereda/G_projekt/start_saboteur.sh start');
         $service1->setStopCmd('/home/epi/21_sereda/G_projekt/start_saboteur.sh stop');

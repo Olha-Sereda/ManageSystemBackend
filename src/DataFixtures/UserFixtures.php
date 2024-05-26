@@ -73,6 +73,7 @@ class UserFixtures extends AbstractBaseFixtures
         $test1->setTestCode("if [ -z `ps afx| grep \"/home/epi/21_sereda/G_projekt/app.py\" | grep -v grep | awk ' { print $1 } '` ]; then echo \"false\"; else echo \"true\"; fi");
         $test1->setDatetimeUpdate(null);
         $test1->setEnabled(true);
+        $test1->setExpectedAnswer('true');
         $test1->setUserId($user1);
         $this->manager->persist($test1);
 
@@ -81,6 +82,7 @@ class UserFixtures extends AbstractBaseFixtures
         $test2->setTestCode('ss -nltp | grep 12140 | awk \' { print $4 } \' | cut -f2 --delimiter=":" ');
         $test2->setDatetimeUpdate(null);
         $test2->setEnabled(true);
+        $test2->setExpectedAnswer('12140');
         $test2->setUserId($user1);
         $this->manager->persist($test2);
 
