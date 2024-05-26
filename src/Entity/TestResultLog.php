@@ -14,7 +14,7 @@ class TestResultLog
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $datetime_execution = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
