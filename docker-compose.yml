@@ -1,5 +1,14 @@
 version: "3.8" #docker version
 services:
+  pollerserver:
+    build:
+      context: .
+      dockerfile: ./poller/Dockerfile
+    container_name: pollerserver
+    networks:
+      - postgres
+    volumes:
+      - ./poller/logs:/scripts/poller/logs
   postgres:
     container_name: dyplom_postgres # use that name as hostname in pgadmin
     image: postgres:16
@@ -24,9 +33,13 @@ services:
     ports:
       - "5050:80"
 
-networks: #connection between two containers
+networks:
+  #connection between two containers
   postgres:
     driver: bridge
+    ipam:
+      config:
+        - subnet: "10.251.1.0/24"
 
 volumes:
   postgres:

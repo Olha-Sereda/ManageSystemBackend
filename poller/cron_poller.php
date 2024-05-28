@@ -1,5 +1,6 @@
 <?php
 
+//get the data from the .env file
 function parseEnvFile($filePath) {
     if (!file_exists($filePath)) {
         throw new Exception("File not found: " . $filePath);
@@ -20,6 +21,7 @@ function parseEnvFile($filePath) {
     return $data;
 }
 
+//create the connection string from the database URL in the .env file
 function createConnectionString($databaseUrl) {
     $components = parse_url($databaseUrl);
 
@@ -44,17 +46,19 @@ function createConnectionString($databaseUrl) {
     return $connectionString;
 }
 
+//connect to the server via SSH and execute a command
 function sshconn($server, $port, $user, $pass, $cmd) {
+    
     $ssh = ssh2_connect($server, $port);
-    if (!$ssh) {
-        echo "Failed to connect to the server";
-        exit;
-    }
+    // if (!$ssh) {
+    //     echo "Failed to connect to the server";
+    //     exit;
+    // }
 
     // Authenticate with the server
     if (!ssh2_auth_password($ssh, $user, $pass)) {
         echo "Authentication failed";
-        exit;
+//        exit;
     }
 
     // Execute commands on the server
@@ -70,8 +74,23 @@ function sshconn($server, $port, $user, $pass, $cmd) {
 }
 
 
+//***************    begin of the programm     ***************//
+// To avoid running the script multiple times, we will create a lock file
+// Check if the script is already running
+$lockFile = dirname(__FILE__) . "/cron_poller.lock";
 
+if (file_exists($lockFile)) {
+    echo "Another instance of the script is already running. Stopping execution.";
+    exit;
+}
+
+// Create a lock file to indicate that the script is running
+file_put_contents($lockFile, '');
+
+
+//****************  main code  ****************
 $env = dirname(__FILE__)."/../.env";
+
 try {
     $envData = parseEnvFile($env);
     
@@ -84,7 +103,12 @@ try {
     
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
+    
+    // Remove the lock file after the script finishes execution
+    unlink($lockFile);
+    exit -1;
 }
+
 
 try {
     $dbconn = new PDO($connectionString);
@@ -95,7 +119,10 @@ try {
     
     if (!$servers) {
         echo "Error executing query: " . $dbconn->errorInfo()[2];
-        exit;
+        
+        // Remove the lock file after the script finishes execution
+        unlink($lockFile);
+        exit -1;
     }
     
     //get all servers
@@ -150,7 +177,15 @@ try {
     $servers->closeCursor();
 } catch (PDOException $e) {
     echo "Database connection failed: " . $e->getMessage();
+    
+    // Remove the lock file after the script finishes execution
+    unlink($lockFile);
+    exit -1;
 }
 
+//**************** end main code  ****************
 
+
+// Remove the lock file after the script finishes execution
+unlink($lockFile);
 ?>
