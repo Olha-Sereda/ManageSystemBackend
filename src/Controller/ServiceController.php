@@ -15,10 +15,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class ServiceController extends AbstractController
-{
-    //connect to the server via SSH and execute a command
-    public function sshconn($server, $port, $user, $pass, $cmd) {
+
+//connect to the server via SSH and execute a command
+function sshconn($server, $port, $user, $pass, $cmd) {
     
     $ssh = ssh2_connect($server, $port);
     
@@ -27,10 +26,7 @@ class ServiceController extends AbstractController
     if (ssh2_auth_password($ssh, $user, $pass) && $ssh) 
     {    
         // Execute commands on the server
-        $stream = ssh2_exec($ssh, $cmd);
-        stream_set_blocking($stream, true);
-        $output = stream_get_contents($stream);
-        fclose($stream);
+        ssh2_exec($ssh, $cmd);
 
         // Close the SSH connection
         ssh2_disconnect($ssh);
@@ -38,7 +34,8 @@ class ServiceController extends AbstractController
     return $output;
 }
 
-    
+class ServiceController extends AbstractController
+{
     #[Route('/api/server/{id<\d+>}', name: 'app_services', methods: 'GET')]
     public function showServices(ServiceRepository $serviceRepository,  int $id) : JsonResponse
     {
@@ -114,14 +111,11 @@ class ServiceController extends AbstractController
         $serverLogin = $server->getLogin();
         $serverPasswordKey = $server->getPasswordKey();
 //        echo "||".$run_cmd."||\n";
-        $output = trim($this->sshconn($serverFqdn, $serverPort, $serverLogin, $serverPasswordKey, $run_cmd));
+        sshconn($serverFqdn, $serverPort, $serverLogin, $serverPasswordKey, $run_cmd);
 //        echo "||".$output."||\n";
-//        if ($output=="true"){
         $service->setRun(true);
         $em->flush();
         return new JsonResponse(['status' => 'Service started successfully'], Response::HTTP_OK);
-//        }
-//        return new JsonResponse(['status' => 'Error during service start'], Response::HTTP_OK);
     }
 
     #[Route('/api/service/{serviceId<\d+>}/stop', name: 'service_stop', methods: ['GET'])]
@@ -141,13 +135,10 @@ class ServiceController extends AbstractController
         $serverLogin = $server->getLogin();
         $serverPasswordKey = $server->getPasswordKey();
 //        echo "||".$run_cmd."||\n";
-        $output = trim($this->sshconn($serverFqdn, $serverPort, $serverLogin, $serverPasswordKey, $run_cmd));
+        sshconn($serverFqdn, $serverPort, $serverLogin, $serverPasswordKey, $run_cmd);
 //        echo "||".$output."||\n";
-//        if ($output=="true"){
         $service->setRun(false);
         $em->flush();
         return new JsonResponse(['status' => 'Service stopped successfully'], Response::HTTP_OK);
-//        }
-//        return new JsonResponse(['status' => 'Error during service stop'], Response::HTTP_OK);
     }
 }
