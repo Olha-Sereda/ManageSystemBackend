@@ -69,7 +69,9 @@ class UsersController extends AbstractController
             $user->setUserName($data['user_name']);
             $user->setUserSurname($data['user_surname']);
             $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
+            if (isset($data['password'])) {
+                $user->setPassword($data['password']);
+            }
             $em->flush();
         }
 

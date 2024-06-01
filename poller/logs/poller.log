@@ -1,0 +1,294 @@
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: true
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: true
+Service status: OK
+1  Wierzba
+     1  Service Saboteur
+
+Warning: ssh2_connect(): Unable to connect to wierzba.wzks.uj.edu.pl on port 22 in /scripts/poller/cron_poller.php on line 52
+
+Warning: ssh2_connect(): Unable to connect to wierzba.wzks.uj.edu.pl in /scripts/poller/cron_poller.php on line 52
+
+Fatal error: Uncaught TypeError: ssh2_auth_password(): Argument #1 ($session) must be of type resource, bool given in /scripts/poller/cron_poller.php:59
+Stack trace:
+#0 /scripts/poller/cron_poller.php(59): ssh2_auth_password(false, '21_sereda', 'U8x3g2r8a2')
+#1 /scripts/poller/cron_poller.php(145): sshconn('wierzba.wzks.uj...', 22, '21_sereda', 'U8x3g2r8a2', 'if [ -z `ps afx...')
+#2 {main}
+  thrown in /scripts/poller/cron_poller.php on line 59
+Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.Another instance of the script is already running. Stopping execution.
