@@ -26,6 +26,7 @@ class UsersController extends AbstractController
                 'user_name' => $user->getUserName(),
                 'user_surname' => $user->getUserSurname(),
                 'email' => $user->getEmail(),
+                'roles' => $user->getRoles(), 
                 // 'password' => $user->getPassword(), // It's not a good practice to expose passwords
             ];
         }
@@ -42,6 +43,9 @@ class UsersController extends AbstractController
         $user->setUserSurname($data['user_surname']);
         $user->setEmail($data['email']);
         $user->setPassword($data['password']);
+        if (isset($data['roles']) && is_array($data['roles'])) {
+            $user->setRoles($data['roles']);
+        }
         $em->persist($user);
         $em->flush();
     
@@ -71,6 +75,9 @@ class UsersController extends AbstractController
             $user->setEmail($data['email']);
             if (isset($data['password'])) {
                 $user->setPassword($data['password']);
+            }
+            if (isset($data['roles']) && is_array($data['roles'])) {
+                $user->setRoles($data['roles']);
             }
             $em->flush();
         }
