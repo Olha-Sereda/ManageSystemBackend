@@ -1,14 +1,5 @@
 version: "3.8" #docker version
 services:
-  pollerserver:
-    build:
-      context: .
-      dockerfile: ./poller/Dockerfile
-    container_name: pollerserver
-    networks:
-      - postgres
-    volumes:
-      - ./poller/logs:/scripts/poller/logs
   postgres:
     container_name: dyplom_postgres # use that name as hostname in pgadmin
     image: postgres:16
@@ -18,24 +9,47 @@ services:
       POSTGRES_PASSWORD: masterkey
       PGDATA: /var/lib/postgresql/data
     networks:
-      - postgres
+      - postgresnet
+    #comment out if you dont want to externalize the data
     ports:
       - "5433:5432"
-  pgadmin:
-    container_name: dyplom_pgadmin4
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+
+  # pgadmin:
+  #   container_name: dyplom_pgadmin4
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  #     PGADMIN_DEFAULT_PASSWORD: root
+  #   networks:
+  #     - postgresnet
+  #   ports:
+  #     - "5050:80"
+
+  pollerserver:
+    build:
+      context: .
+      dockerfile: ./setup/Dockerfile.poller
+    container_name: pollerserver
     networks:
-      - postgres
+      - postgresnet
+    volumes:
+      - ./poller/logs:/scripts/poller/logs
+
+  backserver:
+    build:
+      context: .
+      dockerfile: ./setup/Dockerfile.symfony
+    container_name: backserver
+    networks:
+      - postgresnet
     ports:
-      - "5050:80"
+      - "8000:8000"
+    depends_on:
+      - postgres
 
 networks:
-  #connection between two containers
-  postgres:
+  postgresnet:
     driver: bridge
     ipam:
       config:
@@ -44,3 +58,5 @@ networks:
 volumes:
   postgres:
   pgadmin:
+  backserver:
+  pollerserver:
