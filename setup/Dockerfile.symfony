@@ -1,0 +1,47 @@
+FROM php:8.1.28-fpm
+
+RUN apt-get update 
+
+# Install SSH2 extension
+RUN apt-get install -y libssh2-1 libssh2-1-dev
+RUN pecl install ssh2 
+RUN docker-php-ext-enable ssh2
+
+# Install Postgres PDO extension
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
+
+# install symfony-cli
+RUN apt-get install -y git unzip procps
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' |  bash
+RUN apt-get install -y symfony-cli
+
+# Install Composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+RUN mkdir /opt/dyploma
+WORKDIR /opt/dyploma
+
+COPY ./bin /opt/dyploma/bin
+COPY ./config /opt/dyploma/config
+COPY ./migrations /opt/dyploma/migrations
+COPY ./public /opt/dyploma/public
+COPY ./src /opt/dyploma/src
+COPY ./templates /opt/dyploma/templates
+COPY .env /opt/dyploma/.env
+COPY composer.json /opt/dyploma/composer.json
+COPY composer.lock /opt/dyploma/composer.lock
+COPY symfony.lock /opt/dyploma/symfony.lock
+COPY package.json /opt/dyploma/package.json
+COPY package-lock.json /opt/dyploma/package-lock.json
+RUN sed -i "s/127.0.0.1:5433/postgres:5432/g" .env
+
+
+COPY ./setup/init_symfony.sh /opt/init_symfony.sh
+RUN chmod +x /opt/init_symfony.sh
+
+ENTRYPOINT ["/opt/init_symfony.sh"]
+
