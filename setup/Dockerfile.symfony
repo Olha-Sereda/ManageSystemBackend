@@ -13,7 +13,7 @@ RUN apt-get install -y libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
 # install symfony-cli
-RUN apt-get install -y git unzip procps
+RUN apt-get install -y git unzip procps dos2unix
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' |  bash
 RUN apt-get install -y symfony-cli
 
@@ -41,6 +41,7 @@ RUN sed -i "s/127.0.0.1:5433/postgres:5432/g" .env
 
 
 COPY ./setup/init_symfony.sh /opt/init_symfony.sh
+RUN dos2unix /opt/init_symfony.sh
 RUN chmod +x /opt/init_symfony.sh
 
 ENTRYPOINT ["/opt/init_symfony.sh"]

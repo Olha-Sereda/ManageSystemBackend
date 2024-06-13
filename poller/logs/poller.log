@@ -312,3 +312,10 @@ Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" 
 Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
     Status: false
 Service status: FAIL
+1  Wierzba
+     1  Service Saboteur
+Executing command: if [ -z `ps afx| grep "/home/epi/21_sereda/G_projekt/app.py" | grep -v grep | awk ' { print $1 } '` ]; then echo -n "false"; else echo -n "true"; fi
+    Status: false
+Executing command: ss -nltp | grep 12140 | awk ' { print $4 } ' | cut -f2 --delimiter=":" 
+    Status: false
+Service status: FAIL
