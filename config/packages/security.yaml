@@ -40,11 +40,15 @@ security:
             # pattern: ^/
             security: false
 
+    role_hierarchy:
+        ROLE_USER: []
+        ROLE_ADMIN: [ROLE_USER]
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^api/users, roles: ROLE_ADMIN }
         - { path: ^/api, roles: [ROLE_ADMIN, ROLE_USER] }
         # - { path: ^/profile, roles: ROLE_USER }
 

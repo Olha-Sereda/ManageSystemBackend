@@ -10,10 +10,20 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Security\Core\Security;
 
 class UsersController extends AbstractController
 {
+    /**
+     * @var Security
+     */
+    private $security;
+
+    public function __construct(Security $security)
+    {
+       $this->security = $security;
+    }
+
     #[Route('/api/users', name: 'get_users', methods: 'GET')]
     public function getUsers(UserRepository $userRepository): JsonResponse
     {
@@ -83,6 +93,18 @@ class UsersController extends AbstractController
         }
 
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+    }
+
+    #[Route('/api/current_user_role', name: 'get_user_role', methods: 'GET')]
+    public function getUserRole(): JsonResponse
+    {
+        $user = $this->security->getUser();
+        
+        if ($user) {
+            return new JsonResponse($user->getRoles(), Response::HTTP_OK);
+        } else {
+            return new JsonResponse(null, Response::HTTP_UNAUTHORIZED);
+        }
     }
     
     

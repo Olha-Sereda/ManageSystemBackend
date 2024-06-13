@@ -52,7 +52,7 @@ class DataFixtures extends AbstractBaseFixtures
         $this->createMany(3, 'admins', function (int $i) {
             $user = new User();
             $user->setEmail(sprintf('admin%d@example.com', $i));
-            $user->setRoles([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value]);
+            $user->setRoles([UserRole::ROLE_ADMIN->value]);
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
                     $user,
